@@ -1,0 +1,22 @@
+<p>Auth Page</p>
+<br>
+<div *ngIf="activeUser == undefined">
+
+  <a routerLink="/exercice/auth/register">Register</a>
+  <br>
+  <a routerLink="/exercice/auth/login">Login</a>
+
+
+</div>
+
+<div *ngIf="activeUser != undefined">
+
+  <p>Connected as {{activeUser.pseudo}}</p>
+  <br>
+  <button (click)="logout()">Disconnect</button>
+
+</div>
+
+
+
+<router-outlet></router-outlet>

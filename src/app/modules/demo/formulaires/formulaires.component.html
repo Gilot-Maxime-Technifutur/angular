@@ -1,0 +1,35 @@
+<p>formulaires works!</p>
+
+<form [formGroup]="myFormGroup" (ngSubmit)="submit()" >
+  <label>Mail </label>
+  <input type="email" formControlName="email">
+  <br>
+  <label>Username </label>
+  <input type="text" formControlName="username">
+  <br>
+  <label>Password </label>
+  <input type="password" formControlName="password">
+  <br>
+  <button type="submit" [disabled]="!myFormGroup.valid">Submit</button>
+</form>
+
+<!--FORM ARRAY-->
+<br>
+<h1>FORM ARRAY</h1>
+<br>
+
+<form [formGroup]="myFormGroupWithArray" (ngSubmit)="submitArray()">
+  <div formArrayName="myArray">
+    <div *ngFor="let control of getArray().controls; let i = index" >
+     <p>{{i + 1}} <input type="text" [formControlName]="i" > </p>
+     <button *ngIf="i != 0" (click)="removeControl(i)">Remove</button>
+    </div>
+  </div>
+  <button [disabled]="!myFormGroupWithArray.valid" type="button" (click)="addControl()">MOOOOOOOOOORE</button>
+
+  <button [disabled]="!myFormGroupWithArray.valid" type="submit">Valider</button>
+</form>
+
+<br>
+
+

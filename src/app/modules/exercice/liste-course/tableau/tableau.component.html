@@ -1,0 +1,17 @@
+<fieldset>
+  <legend>Items</legend>
+  <table>
+    <tr>
+      <th>Nom</th>
+      <th>Quantité</th>
+    </tr>
+    <tr *ngFor="let item of items;">
+      <td>{{item.name}}</td>
+      <td>{{item.quantity}}</td>
+      <td>
+        <input type="number" [max]="item.quantity" [(ngModel)]="quantities[items.indexOf(item)]" >
+        <button [disabled]="item.quantity < quantities[items.indexOf(item)] || quantities[items.indexOf(item)] == undefined" (click)="removeItem(items.indexOf(item))">remove</button>
+      </td>
+    </tr>
+  </table>
+</fieldset>

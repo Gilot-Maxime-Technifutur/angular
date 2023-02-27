@@ -1,0 +1,14 @@
+<br>
+
+<fieldset>
+  <legend>HELLO</legend>
+  <label>Nom </label>
+  <input type="text" [(ngModel)]="name" > &nbsp;
+  <label>Quantité </label>
+  <input type="number" [(ngModel)]="quantity"> &nbsp;
+  <button (click)="addItem()" [disabled]="quantity == undefined || name == ''">Ok</button>
+
+  <app-tableau></app-tableau>
+
+
+</fieldset>

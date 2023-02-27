@@ -1,0 +1,27 @@
+import { Component } from '@angular/core';
+import { user } from 'src/app/shared/models/user';
+import { DemoService } from 'src/app/shared/services/demo-service/demo.service';
+
+@Component({
+  selector: 'app-table1',
+  templateUrl: './table1.component.html',
+  styleUrls: ['./table1.component.scss']
+})
+export class Table1Component {
+  constructor(private _demoService : DemoService){
+  }
+
+  name : string = '';
+
+  email : string = '';
+
+  addUser(){
+    let newUser : user = {
+      name : this.name,
+      email : this.email
+    }
+    this._demoService.addUser(newUser)
+  }
+
+
+}
